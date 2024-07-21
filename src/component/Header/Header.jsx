@@ -1,22 +1,22 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
     return (
         <section className="header">
             <div className="header-container">
                 <div className="left-header">
-                    <Image src="/image/logo/library.png" width={70} height={70} alt="logo"/>
+                    {/* <Image src="/image/logo/library.png" width={70} height={70} alt="logo"/> */}
                     <h1>
-                        Perpustakaan<br/>Online
+                        Perpustakaan
                     </h1>
                 </div>
                 <div className="right-header">
-                    <h1>
-                        Daftar Buku 
-                    </h1>
-                    <h1>
-                        Profil
-                    </h1>
+                    <Link href={"/kategori"}>
+                        <h1>
+                            Kategori
+                        </h1>
+                    </Link>
                 </div> 
             </div>
         </section>

@@ -1,10 +1,16 @@
 import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 
 const Wrapper = () => {
     return (
-        <Header>
+        <>
+            <Header>
 
-        </Header>
+            </Header>
+            <Footer>
+
+            </Footer>
+        </>
     )
 };
 
