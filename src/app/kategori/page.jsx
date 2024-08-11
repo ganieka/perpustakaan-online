@@ -37,7 +37,7 @@ const Kategori = () => {
           <p>Loading...</p>
         ) : kategori.length > 0 ? (
           kategori.map((item, key) => (
-            <Link href={"kategori/" + item.nama} key={key}>
+            <Link href={"kategori/" + item.nama + "/nama/''"} key={key}>
               <div className="card" key={item.id}>
                 <div className="card-image-container">
                   <Image src={item.image} height={140} width={140} alt={item.nama} />

@@ -280,12 +280,18 @@ a {
   height: 100px;
   display: flex;
   align-items: center;
-  padding: 40px;
+  padding: 0 40px;
   border-bottom: 1px solid black;
   width: 100%;
+  justify-content: center;
 }
 
-.daftar-buku .filter-kategori select{
+.daftar-buku .filter-kategori {
+  position: absolute;
+  left: 40px;
+}
+
+.daftar-buku .filter-kategori select {
   border: 1px solid black;
   display: flex;
   align-items: center;
@@ -296,6 +302,28 @@ a {
   font-size: 18px;
   text-align: center;
 } 
+
+.daftar-buku .filter-nama {
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  display: flex;
+  height: 48px;
+  align-items: center;
+  padding: 10px 20px;
+  column-gap: 5px;
+}
+
+.daftar-buku .filter-nama input {
+  font-size: 16px;
+  border: 0;
+  outline: 0;
+  font-size: 18px;
+  height: 38px;
+}
+
+.daftar-buku .hasil-buku {
+  padding: 20px 40px;
+}
 /*
 
 .daftar-buku .filter-kategori select{
