@@ -93,6 +93,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
 }
 
 section {
@@ -133,7 +137,7 @@ a {
   z-index: 1;
   background-color: #dcb386;
   height: 64px;
-  box-shadow: 0px 5px 20px 10px #999;
+  box-shadow: 0px 2.5px 10px 5px #999;
   width: 100%;
   position: fixed;
 }
@@ -184,16 +188,25 @@ a {
 }
 
 /* Home */
-.home {
+.home, .kategori, .daftar-buku {
   display: flex;
+  flex: 1;
+  margin: 64px 0 125px;
 }
 .home .left-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 80vh;
   left-padding: 76px;
   width: 50%;
+}
+.home .right-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+  row-gap: 10px;
 }
 .home .left-content h1 {
   font-size: 56px;
@@ -217,3 +230,85 @@ a {
   opacity: 0.4;
   margin: 0;
 }
+
+.kategori {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.kategori .card {
+  width: 640px;
+  display: flex;
+  column-gap: 20px;
+  background-color: #DCB386;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 0.5s ease;
+}
+.kategori .card:hover {
+  background-color: #372B1E;
+}
+.kategori .card:hover .card-text-container {
+  color: #fff;
+}
+.kategori .card .card-image-container {
+  height: 160px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F1DFCF;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 5px;
+}
+.kategori .card .card-text-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.daftar-buku {
+  flex-direction: column;
+}
+
+.daftar-buku .filter-buku {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+.daftar-buku .filter-kategori select{
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  min-width: 144px;
+  min-height: 48px;
+  border-radius: 10px;
+  font-size: 18px;
+  text-align: center;
+} 
+/*
+
+.daftar-buku .filter-kategori select{
+  appearance: none;
+  width: 100%;
+  font-size: 1.15rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 10px;
+  color: #000;
+  cursor: pointer;
+}
+.daftar-buku .filter-kategori select::before {
+  border-radius: 10px;
+} */
