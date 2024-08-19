@@ -303,7 +303,7 @@ a {
   text-align: center;
 } 
 
-.daftar-buku .filter-nama {
+.filter-nama {
   border-radius: 50px;
   border: 1px solid #ccc;
   display: flex;
@@ -311,18 +311,53 @@ a {
   align-items: center;
   padding: 10px 20px;
   column-gap: 5px;
+  justify-content: space-between;
 }
 
-.daftar-buku .filter-nama input {
+.filter-nama input {
   font-size: 16px;
   border: 0;
   outline: 0;
   font-size: 18px;
   height: 38px;
+  width: 100%;
 }
 
 .daftar-buku .hasil-buku {
   padding: 20px 40px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+.daftar-buku .hasil-buku .item-buku {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 300px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.daftar-buku .hasil-buku .item-buku img {
+  object-fit: cover;
+  object-position: top center;
+}
+.daftar-buku .hasil-buku .item-buku .item-buku-detail {
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 1px solid black;
+}
+.daftar-buku .hasil-buku .item-buku .item-buku-detail > div {
+  display: flex;
+  justify-content: space-between;
+}
+.daftar-buku .hasil-buku .item-buku .item-buku-detail p {
+  
 }
 /*
 

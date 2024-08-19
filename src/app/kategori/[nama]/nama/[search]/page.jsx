@@ -2,6 +2,7 @@
 import Header from "@/component/Header/Header";
 import Footer from "@/component/Footer/Footer";
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { postRequest, getRequest } from '../../../../../../api';
 import DaftarBuku from "@/component/DaftarBuku";
 
@@ -11,6 +12,8 @@ const Page = ({ params }) => {
     const [buku, setBuku] = useState([]);
     const [listKategori, setListKategori] = useState([]);
     const [loading, setLoading] = useState(true); // Track loading state
+    const router = useRouter();
+    
     if(search === "''") {
         search = '';
     }
@@ -59,7 +62,7 @@ const Page = ({ params }) => {
     return (
         <>
             <Header />
-            <DaftarBuku buku={buku} kategori={nama || "''"} nama={search || "''"} listKategori={listKategori} />
+            <DaftarBuku router={router} buku={buku} kategori={nama || "''"} nama={search || "''"} listKategori={listKategori} />
             <Footer />
         </>
     );

@@ -3,9 +3,16 @@ import Link from "next/link";
 import { useState } from 'react';
 
 const DaftarBuku = (prop) => {
-    const { buku, kategori: initialKategori, nama: initialNama, listKategori} = prop;
+    const { router, buku, kategori: initialKategori, nama: initialNama, listKategori} = prop;
     const [kategori, setKategori] = useState(initialKategori);
     const [nama, setNama] = useState(initialNama);
+
+    const handleSearch = (event) => {
+        if (event.key === 'Enter') {
+          // Replace 'search' with your desired route and inputValue with query params
+          router.push(`/kategori/${kategori}/nama/${nama}`);
+        }
+      };
     // console.log(prop)
     const handleKategoriChange = (event) => {
         if(event.target.value === "") {
@@ -23,14 +30,6 @@ const DaftarBuku = (prop) => {
         }
     };
 
-    // const selectedKategoriId = listKategori.find((item) => item.nama === kategori)?.id;
-
-    // const filteredBuku = buku.filter((item) => {
-    //     const matchKategori = selectedKategoriId ? item.kategori_id === selectedKategoriId : true;
-    //     const matchNama = nama ? item.nama.toLowerCase().includes(nama.toLowerCase()) : true;
-    //     return matchKategori && matchNama;
-    // });
-
     console.log("buku: ", buku, "\nkategori: ", kategori, "\nnama: ", nama, "\nlistKategori: ", listKategori, "\nfiltered buku: ")
     return (
         <section className="daftar-buku" style={{padding: '0'}}>
@@ -46,9 +45,10 @@ const DaftarBuku = (prop) => {
                 <div className="filter-nama">
                     <input
                         type="text"
-                        placeholder="Search by name..."
+                        placeholder="Masukkan nama..."
                         value={nama=="''" ? "": nama}
                         onChange={handleNamaChange}
+                        onKeyDown={handleSearch}
                     />
                     <Link href={`/kategori/${kategori}/nama/${nama}`}><Image src="/image/icon/search.png" height={22.5} width={22.5} alt="search-icon.png"/></Link>
                 </div>
@@ -57,9 +57,14 @@ const DaftarBuku = (prop) => {
                 {buku.length > 0 ? (
                     buku.map((item, key) => (
                         <div key={key} className="item-buku">
-                            <h3>{item.nama}</h3>
-                            <p>{item.penulis}</p>
-                            <p>{item.tahun}</p>
+                            <Image src={`${item.image || ''}`} width={300} height={350}/>
+                            <div className="item-buku-detail">
+                                <h3>{item.nama}</h3>
+                                <div>
+                                    <p>{item.penulis}</p>
+                                    <p>{item.tahun}</p>
+                                </div>
+                            </div>
                         </div>
                     ))
                 ) : (
