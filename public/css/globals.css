@@ -169,6 +169,7 @@ a {
 .footer {
   height: 125px;
   background-color: #DCB386;
+  border-top: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,7 +189,7 @@ a {
 }
 
 /* Home */
-.home, .kategori, .daftar-buku {
+.home, .kategori, .daftar-buku, .detail-buku {
   display: flex;
   flex: 1;
   margin: 64px 0 125px;
@@ -358,6 +359,22 @@ a {
 }
 .daftar-buku .hasil-buku .item-buku .item-buku-detail p {
   
+}
+
+.detail-buku {
+  padding: 42px 120px;
+}
+
+.detail-buku .detail-container {
+  background-color: #F1DFCF;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.detail-head {
+  display: flex;
 }
 /*
 

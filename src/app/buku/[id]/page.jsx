@@ -18,7 +18,11 @@ const Page = () => {
                 const data = await postRequest('buku/id', {
                     id: id
                 });
-                setBuku(data);
+                if (Array.isArray(data)) {
+                    setBuku(data);
+                } else {
+                    console.error('Fetched data is not an array:', data);
+                }
             } catch (error) {
                 console.error('Gagal menarik buku:', error);
             } finally {
