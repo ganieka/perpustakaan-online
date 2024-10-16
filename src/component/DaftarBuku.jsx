@@ -30,6 +30,14 @@ const DaftarBuku = (prop) => {
         }
     };
 
+    const nameHandler = (name) => {
+        var maxLength = 29
+        if (name.length > maxLength) {
+            return `${name.slice(0, maxLength - 3)}...`;
+        }
+        return name;
+    }
+
     console.log("buku: ", buku, "\nkategori: ", kategori, "\nnama: ", nama, "\nlistKategori: ", listKategori, "\nfiltered buku: ")
     return (
         <section className="daftar-buku" style={{padding: '0'}}>
@@ -56,16 +64,18 @@ const DaftarBuku = (prop) => {
             <div className="hasil-buku">
                 {buku.length > 0 ? (
                     buku.map((item, key) => (
-                        <div key={key} className="item-buku">
-                            <Image src={`${item.image || ''}`} width={300} height={350}/>
-                            <div className="item-buku-detail">
-                                <h3>{item.nama}</h3>
-                                <div>
-                                    <p>{item.penulis}</p>
-                                    <p>{item.tahun}</p>
+                        <Link href={`/buku/${item.id}`} key={key}>
+                            <div className="item-buku">
+                                <Image src={`${item.image || ''}`} width={300} height={350} alt={`${item.name} Image`}/>
+                                <div className="item-buku-detail">
+                                    <h3>{nameHandler(item.nama)}</h3>
+                                    <div>
+                                        <p>{item.penulis}</p>
+                                        <p>{item.tahun}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))
                 ) : (
                     <p>No books found</p>

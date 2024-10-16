@@ -25,7 +25,7 @@ export default function Index() {
 
     fetchBooks();
   }, []);
-  console.log(buku)
+  // console.log(buku)
 
   const handleSearch = (event) => {
       if (event.key === 'Enter') {
@@ -59,10 +59,12 @@ export default function Index() {
             <Link href={`/kategori/''/nama/${nama}`}><Image src="/image/icon/search.png" height={22.5} width={22.5} alt="search-icon.png"/></Link>
           </div>
         </div>
-        <div className="right-content">
-          <Image src={buku[0]?.image} height={400} width={300} alt="buku rating tertinggi.png"/>
-          <h1>{buku[0]?.nama}</h1>
-        </div>
+        { buku &&
+          <Link href={`/buku/${buku[0].id}`} className="right-content">
+            <Image src={buku[0]?.image} height={400} width={300} alt="buku rating tertinggi.png"/>
+            <h1>{buku[0]?.nama}</h1>
+          </Link>
+        }
       </section>
       
       <Footer/>

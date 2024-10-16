@@ -8,6 +8,7 @@ import DaftarBuku from "@/component/DaftarBuku";
 
 const Page = ({ params }) => {
     var { nama, search } = params; // Extracting `nama` and `search` from URL params
+    nama = nama.replaceAll('%20', ' ')
     console.log(nama)
     const [buku, setBuku] = useState([]);
     const [listKategori, setListKategori] = useState([]);

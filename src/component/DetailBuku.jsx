@@ -11,8 +11,8 @@ const DetailBuku = (params) => {
                     <div className="detail-container">
                         <div className="detail-head">
                             <div className="image-container">
-                                <Image src={buku[0].image} alt="cover buku" width={170} height={210}/>
-                                <Link href={`/`}>
+                                <Image src={buku[0].image} alt="cover buku" width={170} height={210} />
+                                <Link href={`/${buku[0].link}`}>
                                     <button className="read-button">
                                         Baca Buku
                                     </button>
@@ -21,31 +21,31 @@ const DetailBuku = (params) => {
                             <div className="detail-head-right">
                                 <div className="detail-head-1">
                                     <div>
-                                        <h2>{buku[0].nama}</h2>
-                                        <p>by {buku[0].penulis}</p>
-                                        <p><span>Kategori: </span>{buku[0].kategori}</p>
+                                        <Link href={`/${buku[0].link}`}><h2>{buku[0].nama}</h2></Link>
+                                        <p>by <span style={{fontWeight: 600}}>{buku[0].penulis}</span></p>
+                                        <p>Kategori: <span style={{fontWeight: 600}}>{buku[0].kategori}</span></p>
                                     </div>
                                     <div>
-                                        <h1>0.0</h1>
+                                        <h1>{buku[0].rating}</h1>
                                         <p style={{fontSize: 24}}>Rating</p>
                                     </div>
                                 </div>
                                 <div className="detail-head-2">
                                     <div>
                                         <h5>Tanggal Terbit</h5>
-                                        2024
+                                        {buku[0].tahun}
                                     </div>
                                     <div>
                                         <h5>Penerbit</h5>
-                                        Standard Ebooks
+                                        {buku[0].penerbit}
                                     </div>
                                     <div>
                                         <h5>Bahasa</h5>
-                                        Inggris
+                                        {buku[0].bahasa}
                                     </div>
                                     <div>
                                         <h5>Halaman</h5>
-                                        2024
+                                        {buku[0].halaman}
                                     </div>
                                 </div>
                             </div>
